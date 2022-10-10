@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 
 void errMessage();
@@ -84,6 +85,7 @@ void printResult(int x, char op, int y)
 {
 	int result;
 	
+	assert(!(y== 0) && "Cannot be divided by 0.\n");
 	switch(op)
 	{
 		case '+': result = x + y; break;
@@ -94,5 +96,3 @@ void printResult(int x, char op, int y)
 	
 	std::cout << x << ' ' << op << ' ' << y << " = " << result << '\n';
 }
-
-// 2022
