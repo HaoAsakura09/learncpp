@@ -94,3 +94,5 @@ void printResult(int x, char op, int y)
 	
 	std::cout << x << ' ' << op << ' ' << y << " = " << result << '\n';
 }
+
+// 2022
