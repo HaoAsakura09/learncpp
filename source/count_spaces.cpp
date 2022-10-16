@@ -18,5 +18,7 @@ int main()
 		if (buffer[index] == ' ')
 			++spacesFound;
 	}
+
+	std::cout << "You typed " << spacesFound << " spaces!\n";
 	return 0;
 }
