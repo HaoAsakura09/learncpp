@@ -78,23 +78,23 @@ void readCards()
 			case 't':			case 'T':        rank = 8;  break;
 			case 'j':			case 'J':        rank = 9;  break;
 			case 'q':			case 'Q':        rank = 10; break;
-			case 'k':			case 'K':		 rank = 11; break;
-			case 'a':			case 'A':		 rank = 12; break;
-			default: 							 badCard =  true;
+			case 'k':			case 'K':	 rank = 11; break;
+			case 'a':			case 'A':	 rank = 12; break;
+			default: 					 badCard =  true;
 		}
 		// reads suit
 		suitCh = std::getchar();
 		switch(suitCh)
 		{
-            case 'c':   case 'C':   suit = 0; break;
-            case 'd':   case 'D':   suit = 1; break;
-            case 'h':   case 'H':   suit = 2; break;
-            case 's':   case 'S':   suit = 3; break;
-            default:                badCard = true; break;
+            		case 'c':   case 'C':   suit = 0; break;
+            		case 'd':   case 'D':   suit = 1; break;
+            		case 'h':   case 'H':   suit = 2; break;
+           	        case 's':   case 'S':   suit = 3; break;
+            		default:                badCard = true; break;
 		}
 
-		while((ch = std::getchar()) != '\n')
-            if(ch == ' ') badCard = true;
+	      while((ch = std::getchar()) != '\n')
+            	if(ch == ' ') badCard = true;
 
         if(badCard)
             std::cout << "Bad card; ignored.\n";
