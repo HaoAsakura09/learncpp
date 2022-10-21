@@ -1,0 +1,141 @@
+#include <array>
+#include <cctype>
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+class ItemInfo
+{
+	public:
+		using item= int;
+		item number{};
+		std::string name{};
+		item onHand{};
+};
+
+class Inventory
+{
+		ItemInfo item[100];
+	public:
+	// Max item can be stored
+		int maxPart{ 100 };
+	// Number of items currently stored in imventory
+		int numParts{};
+	// increment numPart everytime we store an item
+		void increaseItem()
+		{
+			numParts++;
+		}
+	// search for item if it exists in the inventory
+		int findParts(int number)
+		{
+			int i{};
+			for(i = 0; i < numParts; i++)
+				if(item[i].number == number)
+					return i;
+			return -1;
+		}
+		
+		// Insert item
+		void insertItem()
+		{
+			int partNumber{};
+			if(numParts == maxPart)
+			{
+				std::cout << "Database is full; can't add more parts.\n";
+				return;
+			}
+			
+			std::cout << "Enter part number: ";
+			std::cin >> partNumber;
+			
+			if(findParts(partNumber) >= 0)
+			{
+				std::cout << "Part already exists.\n";
+				return;
+			}
+			
+			item[numParts].number = partNumber;
+			std::cout << "Enter part name: ";
+			std::getline(std::cin >> std::ws, item[numParts].name);
+			std::cout << "Enter quantity on hand: ";
+			std::cin >> item[numParts].onHand;
+			
+			increaseItem();
+		}
+		
+		// Search item 
+		
+		void search()
+		{
+			int i{};
+			int number{};
+			
+			std::cout << "Enter part number: ";
+			std::cin >> number;
+			
+			i = findParts(number);
+			
+			if(i >= 0)
+			{
+				std::cout << "Part name: " << item[i].name << ", Quantity on hand: " << item[i].onHand << '\n';
+			}
+			else
+				std::cout << "Part not found.\n";
+			
+		}
+		// add number of onhand items
+		void update()
+		{
+			int i{};
+			int number{};
+			int change{};
+			
+			std::cout << "Enter part number: ";
+			std::cout << number;
+			
+			i = findParts(number);
+			
+			if(i >= 0)
+			{
+				std::cout << "Enter change quantity on hand: ";
+				std::cin >> change;
+				item[i].onHand += change;
+			}
+			else
+				std::cout << "Part not found.\n";
+		}
+		
+		void print()
+		{
+			std::cout << "Part name\tPart Number\tQuantity on hand\n";
+			for(int i{ 0 }; i < numParts; i++)
+			{
+				std::cout << item[i].name  <<'\t' << std::setw(7) << item[i].number << "\t\t" << std::setw(7)  << '\t' << item[i].onHand;
+			}
+		}
+};
+
+int main()
+{
+	Inventory item{};
+	char command{};
+	
+	for(;;)
+	{
+		std::cout << "Enter operation code (i = insert, s = search, u = update, p = print, q = quit): ";
+		std::cin >> command;
+		
+		switch(std::toupper(command))
+		{
+			case 'I': item.insertItem(); break;
+			case 'S': item.search();		break;
+			case 'U': item.update();		break;
+			case 'P': item.print();			 break;
+			case 'Q': return 0;
+		}
+		
+		std::cout << "\n\n";
+	}
+	
+}
