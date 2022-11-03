@@ -1,1 +1,10 @@
-ongoing
+/* Eercises 1-1: Create, compile, link, and execute a program that will display text
+ * "Hello World" on your screen.
+ */
+#include <iostream>
+
+int main()
+{
+  std::cout << "Hello World\n";
+  return 0;
+}
