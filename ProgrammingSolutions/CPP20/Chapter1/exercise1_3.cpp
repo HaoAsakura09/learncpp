@@ -2,7 +2,7 @@
  * Find these errors and correct them so the program can compile cleanly and run.
  */
 
-#import <iostream>
+import <iostream>
 
 int main()
 {
@@ -10,11 +10,11 @@ int main()
   return 0;
 }
 
-/* The errors can be fixed by changing #import to #include and by adding ;(semicolon) at the
- * end of the first statement inside main()
+/* use #include for c++17 or earlier versions
+ * 
  *
  * Solution
- * #include <iostream>
+ * import <iostream>;
  *
  * int main()
  * {
