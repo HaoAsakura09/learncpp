@@ -25,7 +25,7 @@ int main()
 	const double weightInKilograms{ pounds / poundsPerKilogram };
 	const double heightMeters{ metersPerfoot * (feet + inches / inchesPerFoot) };
 	const double bmi{ weightInKilograms / (heightMeters * heightMeters) };
-	std::cout << std::format("Your BMI is {:.2f}\n", bmi);
+	std::cout << std::format("Your BMI is {}\n", bmi);
 
 	return 0;
 }
