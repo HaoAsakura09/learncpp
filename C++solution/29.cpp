@@ -4,8 +4,8 @@
  * 9:43 a.m.		11:52 a.m.
  * 11:19 a.m		1:31 p.m.
  * 12:47 p.m.		3:00 p.m.
- * 2:00 p.m			4:08 p.m.
- * 3:45 p.m			5:55 p.m.
+ * 2:00 p.m		4:08 p.m.
+ * 3:45 p.m		5:55 p.m.
  * 7:00 p.m.		9:20 p.m.
  * 9:45 p.m.		11:58 p.m.
  *  
@@ -45,7 +45,7 @@ int main()
 
 	if (userMinutes < d1 || (userMinutes - d1 < d2 - userMinutes))
 	{
-		std::cout << std::format("Closest departure time is {}:{:0>} a.m., arriving at {}:{} a.m.\n", 8, 0, 10, 16);
+		std::cout << std::format("Closest departure time is {}:{:0>2} a.m., arriving at {}:{} a.m.\n", 8, 0, 10, 16);
 	}
 	else if (userMinutes < d2 || (userMinutes - d2 < d3 - userMinutes))
 	{
@@ -57,11 +57,11 @@ int main()
 	}
 	else if (userMinutes < d4 || (userMinutes - d4 < d5 - userMinutes))
 	{
-		std::cout << std::format("Closest departure time {}:{} p.m., arriving at {}:{:0>}", 12, 47, 3,0);
+		std::cout << std::format("Closest departure time {}:{} p.m., arriving at {}:{:0>2}", 12, 47, 3,0);
 	}
 	else if (userMinutes < d5 || (userMinutes - d5 < d6 - userMinutes))
 	{
-		std::cout << std::format("Closest departure time {}:{:0>} p.m., arriving at {}:{:0>} p.m.\n", 2, 0, 4, 8);
+		std::cout << std::format("Closest departure time {}:{:0>} p.m., arriving at {}:{:0>2} p.m.\n", 2, 0, 4, 8);
 	}
 	else if (userMinutes < d6 || (userMinutes - d6 < d7 - userMinutes))
 	{
@@ -73,7 +73,7 @@ int main()
 	}
 	else
 	{
-		std::cout << std::format("Closest departure time {}:{} p.m., arriving at {}:{:0>} p.m.\n", 12, 47, 3, 0);
+		std::cout << std::format("Closest departure time {}:{} p.m., arriving at {}:{:0>2} p.m.\n", 12, 47, 3, 0);
 	}
 	return 0;
 }
